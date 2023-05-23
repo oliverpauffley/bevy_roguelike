@@ -2,7 +2,9 @@ use bevy::prelude::*;
 
 mod assets;
 mod board;
+mod camera;
 mod globals;
+mod graphics;
 mod states;
 mod vectors;
 
@@ -26,5 +28,7 @@ fn main() {
         .add_state::<states::MainState>()
         .add_plugin(assets::AssetPlugin)
         .add_plugin(board::BoardPlugin)
+        .add_plugin(graphics::GraphicsPlugin)
+        .add_startup_system(camera::setup)
         .run()
 }
